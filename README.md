@@ -9,6 +9,21 @@ and zap the insect if the right conditions are met.
 * 4W Laser Module
 * 12MP Camera Module w/ Auto Focus
 
+## Installation
+There are some requirements that need to be met before you can run the model.
+The following should be installed on your computer:
+
+* Pyenv (not required)
+* Poetry
+
+### Python Version
+This project was built using Python 3.13.5, which can be installed with pyenv,
+or a similar service.
+
+### Poetry Configuration
+After cloning the repo into a folder, install ultralytics and its dependencies
+with their [guide](https://docs.ultralytics.com/quickstart/).
+
 ## Computer Vision and Deep Learning
 To ensure only insects are zapped and humans that enter the field of vision are
 kept safe, artificial intelligence is trained on a custom YOLO11 model for
