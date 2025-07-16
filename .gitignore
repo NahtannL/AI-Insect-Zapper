@@ -4,3 +4,4 @@
 poetry.lock
 ./model-training/dataset
 ./model-training/yolo*.pt
+runs/
