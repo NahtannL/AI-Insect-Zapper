@@ -1,0 +1,5 @@
+# files
+.vscode/
+.venv/
+poetry.lock
+./model-training/dataset

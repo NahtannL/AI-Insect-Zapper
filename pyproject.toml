@@ -1,0 +1,22 @@
+[project]
+name = "ai-insect-zapper"
+version = "0.1.0"
+description = "Insect Zapper w/ Image/object Detection"
+authors = [
+    {name = "NahtannL",email = "thenathan168@gmail.com"},
+    {name = "SituMatthew",email = "matsitu2004@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torch (>=2.7.1,<3.0.0)",
+    "torchvision (>=0.22.1,<0.23.0)",
+    "torchaudio (>=2.7.1,<3.0.0)",
+    "ultralytics (>=8.3.166,<9.0.0)",
+    "roboflow (>=1.2.1,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
