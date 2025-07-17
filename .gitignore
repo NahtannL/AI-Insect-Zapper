@@ -4,6 +4,6 @@
 .python-version
 poetry.lock
 pyproject.toml
-./model-training/dataset
-./model-training/yolo*.pt
+./src/AI_Insect_Zapper/model-training/dataset/*
+./src/AI_Insect_Zapper/model-training/yolo*.pt
 runs/
