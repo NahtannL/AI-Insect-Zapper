@@ -1,14 +1,18 @@
 [project]
 name = "ai-insect-zapper"
 version = "0.1.0"
-description = "Insect Zapper w/ Image/object Detection"
+description = "Insect Zapper w/ Object Detection using YOLO11"
 authors = [
     {name = "NahtannL",email = "thenathan168@gmail.com"},
     {name = "SituMatthew",email = "matsitu2004@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "AI_Insect_Zapper", from = "src"}]
 
 
 [build-system]
