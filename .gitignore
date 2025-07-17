@@ -1,6 +1,7 @@
 # files
 .vscode/
 .venv/
+.python-version
 poetry.lock
 pyproject.toml
 ./model-training/dataset
