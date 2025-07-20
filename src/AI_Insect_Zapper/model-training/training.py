@@ -1,11 +1,27 @@
-# For training the model using YOLO11 as the base.
-#
-# The 'data.yaml' file contains the file paths to the dataset used for
-# training. The completed model is stored in the runs folder found in the root
-# of this project (AI-Insect-Zapper/runs/...)
+"""Train a custom YOLO model using Ultralytics YOLO and a YAML dataset.
 
+Exports:
+    model_train() - Train YOLO model from a base YOLO model.
+
+Example:
+    $ python3 training.py 11 path/to/dataset.yaml
+"""
+
+import sys
 from ultralytics import YOLO
 
-model = YOLO('yolo11n.yaml')
+def model_train(yolo_version, yaml_file_path):
+    """Train a custom model based on a specified base YOLO model and dataset.
+    
+    Keyword arguments:
+        yolo_version -- YOLO base model version number (eg. 11 for YOLO11)
+        yaml_file_path -- relative path to yaml file
+    """
+    model = YOLO(f'yolo{yolo_version}n.yaml')
 
-results = model.train(data='data.yaml', epochs=100, imgsz=640, device=0)
+    model.train(data=yaml_file_path, epochs=100, imgsz=640, device=0)
+
+if (__name__ == '__main__'):
+    if (len(sys.argv) < 3):
+        print('Invalid arguments (Ex. training.py 11 "path/to/file")')
+    model_train(sys.argv[0], sys.argv[1])
