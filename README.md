@@ -1,6 +1,6 @@
 # Laser Insect Detection and Zapper with AI Vision
 With the many annoyances in our daily lives, certain insects are at the top of
-the list, such as mosquitoes and flys. To combat this, this project aims to
+the list, such as mosquitoes and flies. To combat this, this project aims to
 detect the presence of such insects in a certain area in front of the device,
 and zap the insect if the right conditions are met.
 
@@ -8,6 +8,8 @@ and zap the insect if the right conditions are met.
 * NVIDIA Jetson Orin Nano
 * 4W Laser Module
 * 12MP Camera Module w/ Auto Focus
+* Laser Stage Galvanometer
+* N-MOSFET (e.g. IRLZ44N)
 
 ## Installation
 There are some requirements that need to be met before you can run the model.
@@ -15,14 +17,26 @@ The following should be installed on your computer:
 
 * Pyenv (not required)
 * Poetry
+* Ultralytics
+* OpenCV (w/ GStreamer support)
 
 ### Python Version
-This project was built using Python 3.13.5, which can be installed with pyenv,
+This project was built using Python 3.10.12, which can be installed with pyenv,
 or a similar service.
 
 ### Poetry Configuration
-After cloning the repo into a folder, install ultralytics and its dependencies
-with their [guide](https://docs.ultralytics.com/quickstart/).
+After cloning the repo into a folder, ensure poetry is using the correct version
+of Python (3.10.12) with the following line:
+```
+$ poetry env use python3.10.12
+```
+After verifying poetry is using the right version of python, run
+```
+$ poetry install
+```
+to install the version of Ultralytics defined in `pyproject.toml`. Torch should
+also be installed with their guide 
+([torch](https://pytorch.org/get-started/locally/)).
 
 ## Computer Vision and Deep Learning
 To ensure only insects are zapped and humans that enter the field of vision are
