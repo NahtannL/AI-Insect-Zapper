@@ -1,5 +1,5 @@
 ## Models
-This folder contains the custom trained models based on YOLO11's pre-trained
+This folder contains the custom-trained models based on YOLO11's pre-trained
 model.
 
 Models are organized by their revision where each revision represents the next
