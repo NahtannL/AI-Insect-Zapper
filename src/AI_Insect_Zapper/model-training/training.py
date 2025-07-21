@@ -17,11 +17,16 @@ def model_train(yolo_version, yaml_file_path):
         yolo_version -- YOLO base model version number (eg. 11 for YOLO11)
         yaml_file_path -- relative path to yaml file
     """
-    model = YOLO(f'yolo{yolo_version}n.yaml')
+    try:
+        model = YOLO(f'yolo{yolo_version}n.pt')
+    except Exception as e:
+        print(f'ERROR: Failed to load YOLO{yolo_version} model.')
+        exit(1)
 
     model.train(data=yaml_file_path, epochs=100, imgsz=640, device=0)
 
 if (__name__ == '__main__'):
     if (len(sys.argv) < 3):
         print('Invalid arguments (Ex. training.py 11 "path/to/file")')
-    model_train(sys.argv[0], sys.argv[1])
+        exit(1)
+    model_train(sys.argv[1], sys.argv[2])
