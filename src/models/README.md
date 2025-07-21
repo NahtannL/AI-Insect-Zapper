@@ -11,7 +11,7 @@ YOLO11 model trained based on a dataset containing the following classes:
 * Human
 * Mosquito
 * Fly
-* Cockroache
+* Cockroach
 * Hornet
 * Spider
 
