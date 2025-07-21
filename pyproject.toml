@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "AI_Insect_Zapper", from = "src"}]
+packages = [{include = "ai_insect_zapper", from = "src"}]
 
 
 [build-system]
