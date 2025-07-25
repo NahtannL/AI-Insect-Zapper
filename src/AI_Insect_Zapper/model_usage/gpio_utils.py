@@ -28,6 +28,9 @@ class SimpleGPIO:
     def __init__(self, board_mode=GPIO.BOARD):
         GPIO.setmode(board_mode)
         self.pin_dict = {}
+
+    def __str__(self):
+        return str(self.pin_dict)
     
     def setup_gpio(self, pin_list: list):
         """Setup GPIO pins for output.
@@ -61,15 +64,16 @@ class SimpleGPIO:
             print('ERROR: pin_list should be a dictionary of pin(s)')
             return
 
-        for pin, freq in pin_list:
+        for pin, freq in pin_list.items():
             if not isinstance(pin, int) or not isinstance(freq, float):
                 print('ERROR: Invalid type(s). Pin should be of type int and' \
                 'frequency should be of type float.')
                 return
 
             GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
-            pwm = GPIO.PWM(pin, pin_list[pin])
-            self.pin_dict.get[f'pin{pin}'] = pwm
+            pwm = GPIO.PWM(pin, freq)
+            pwm.start(0)
+            self.pin_dict[f'pin{pin}'] = pwm
     
     def change_value(self, pin, value):
         """Change pin value.
@@ -144,6 +148,3 @@ class SimpleGPIO:
                 pin.stop()
         
         GPIO.cleanup()
-    
-    def __del__(self):
-        self.clean()
