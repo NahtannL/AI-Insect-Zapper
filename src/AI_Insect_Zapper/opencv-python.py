@@ -17,13 +17,23 @@ from ultralytics import YOLO
 from ai_insect_zapper.model_usage.gpio_utils import SimpleGPIO
 
 g_streamer = (
-    'v4l2src device=/dev/video0 ! '
-    'image/jpeg, width=3840, height=2160, framerate=30/1 ! '
-    'jpegdec ! '
+    'nvarguscamerasrc sensor_id=0 ! '
+    'video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1, format=NV12 ! '
+    'nvvidconv flip-method=0 ! '
+    'video/x-raw, width=960, height=720, format=BGRx ! '
     'videoconvert ! '
     'video/x-raw, format=BGR ! '
-    'appsink drop=1'
+    'appsink'
 )
+
+# g_streamer = (
+#     'v4l2src device=/dev/video0 ! '
+#     'image/jpeg, width=3840, height=2160, framerate=30/1 ! '
+#     'jpegdec ! '
+#     'videoconvert ! '
+#     'video/x-raw, format=BGR ! '
+#     'appsink drop=1'
+# )
 
 def image_detection_annotation(gstreamer_cli, model_path):
     """Captures a video stream in gstreamer and performs object detection.
@@ -63,7 +73,6 @@ def image_detection_annotation(gstreamer_cli, model_path):
             if (cv2.waitKey(1) & 0xFF == ord('q')):
                 break
 
-    SIO.clean()
     cap.release()
     cv2.destroyAllWindows()
 
