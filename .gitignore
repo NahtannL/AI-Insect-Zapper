@@ -6,3 +6,4 @@ poetry.lock
 pyproject.toml
 runs/
 dependencies/
+.DS_Store
